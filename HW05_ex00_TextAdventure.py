@@ -8,15 +8,16 @@ from sys import exit
 
 
 def infinite_stairway_room(count=0):
+    username = input('What is your name?')
     print("You walk through the door to see a dimly lit hallway.")
     print("At the end of the hallway is a", count * 'long ', 'staircase going towards some light')
     next = input("> ")
     
     # infinite stairs option
     if next == "take stairs":
-        print('You take the stairs')
+        print(str(username) + ' take the stairs')
         if (count > 0):
-            print("but you're not happy about it")
+            print("but " str(username) + "'re not happy about it")
         infinite_stairway_room(count + 1)
     # option 2 == ?????
     if next == option_2:
@@ -24,7 +25,7 @@ def infinite_stairway_room(count=0):
 
 
 def gold_room():
-    print("This room is full of gold.  How much do you take?")
+    print("This room is full of gold.  How much does " + str(username) + " take?")
 
     next = input("> ")
     if "0" in next or "1" in next:
@@ -33,7 +34,7 @@ def gold_room():
         dead("Man, learn to type a number.")
 
     if how_much < 50:
-        print("Nice, you're not greedy, you win!")
+        print("Nice, you're not greedy. " + str(username) + " you win!")
         exit(0)
     else:
         dead("You greedy goose!")
@@ -99,4 +100,4 @@ def start():
         dead("You stumble around the room until you starve.")
 
 if __name__ == '__main__':
-    start()
+    main()
